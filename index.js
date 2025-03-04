@@ -1,10 +1,7 @@
 
 const topic = document.querySelector('.topic')
-const easy_btn = document.querySelector('.easy_btn')
-const medium_btn = document.querySelector('.medium_btn')
-const difficulty_btn = document.querySelector('.difficulty_btn')
+const BtnAll = document.querySelectorAll('button')
 
-var click_number = 0;
 
 const data = {
     "簡單": `<div class="topic-title">
@@ -26,27 +23,24 @@ const data = {
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>`,
-    "困難": `<h1 class="ha">試著自己練習看看吧</h1>`,
+    "提示": `<h1 class="ha">提示：試著自己練習看看吧DWD~</h1>`,
+    "小遊戲":`
+    <div class="topic-title">
+        <h1>小遊戲：不知道要幹嘛的小遊戲</h1>
+    </div>
+    <iframe src="https://codesandbox.io/embed/2z7pnm?view=split"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Rhythm Game-useReducer"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>`
 }
 
-
-
-easy_btn.addEventListener("click", (e) => {
-    topic.innerHTML = data[e.target.textContent];
-})
-medium_btn.addEventListener("click", (e) => {
-    topic.innerHTML = data[e.target.textContent];
-    click_number++;
-    console.log(click_number);
-
-})
-
-difficulty_btn.addEventListener("click", (e) => {
-    if (click_number != 0) {
+BtnAll.forEach((item)=>{
+    item.addEventListener("click",(e)=>{
         topic.innerHTML = data[e.target.textContent];
-
-    } else {
-        alert("尚未完成中等")
-    }
+    })
 })
+
+
 
